@@ -5,7 +5,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
 
 body {
-  background: url(http://25.media.tumblr.com/1d60ac9defbcbd87ff38263a86176bd3/tumblr_miicc2jbUW1r6bchgo1_1280.jpg) no-repeat center center fixed; 
+  background: /*url(http://25.media.tumblr.com/1d60ac9defbcbd87ff38263a86176bd3/tumblr_miicc2jbUW1r6bchgo1_1280.jpg) no-repeat center center fixed; */
+    url(http://25.media.tumblr.com/1d60ac9defbcbd87ff38263a86176bd3/tumblr_miicc2jbUW1r6bchgo1_1280.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
