@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'recipes/list'
+
+  get 'pages/info', as: :about
+
+  get 'welcome/index'  
 
   devise_for :users, :path_names => { :sign_up => "register" }
   # The priority is based upon order of creation: first created -> highest priority.

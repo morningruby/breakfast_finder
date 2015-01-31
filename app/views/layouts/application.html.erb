@@ -6,49 +6,94 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="nav">
-<ul>
-<p class="navbar-text">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Home", :class => 'navbar-link'  %> |
-  <%= link_to "About", :class => 'navbar-link'  %> |
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-<%= yield %>
-</ul>    
+  <div>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-glass"></span></a>
+          </div>
+        
+        <ul class="nav navbar-nav navbar-right">
+         <% if user_signed_in? %>
+           Logged in as <strong><%= current_user.email %></strong>.
+           <li>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>   
+      </li>
+      <li>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
+      <% else %>
+      <li><%= link_to "Home", root_path, :class => 'navbar-link'  %></li>
+      <li><%= link_to "About", about_path, :class => 'navbar-link'  %></li>
+      <li>
+        <%= link_to new_user_registration_path, :class => 'navbar-link' do %>
+          <span class="glyphicon glyphicon-user"></span> 
+          Sign up
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_session_path, :class => 'navbar-link'  do %>
+          <span class="glyphicon glyphicon-log-in"></span>
+          Login
+        <% end %>
+      </li>
+      <% end %>
+      <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      </ul>
+      </div>
+    </nav>
   </div>
+<%= yield %>
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
 <style type="text/css">
-body {
-font: normal 300 .8em 'Open Sans', sans-serif;
-overflow-x:hidden;
-}
 .nav {
-overflow: hidden;
 background-color: transparent;
-height: 40px;
+height: 30px;
 }
 ul {
-overflow: hidden;
 float: right;
-text-align: right;
 text-decoration: none;
 color: black;
 }
 
+ul li {
+float: left;
+}
+ul li a {color: white;
+padding: 0 10px;
+text-decoration: none;
+}
+ul li a:hover {
+color: #333;
+}
+html {
+  overflow-y: scroll;
+}
+
+body {
+  padding-top: 40px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
 </style>
-
-
-</body>
 </html>

@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
-
-require_tree .
-require welcome
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "welcome";
+@import "pages";
