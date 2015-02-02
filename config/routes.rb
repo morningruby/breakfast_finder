@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+
   get 'recipes/list'
 
   get 'pages/info', as: :about
