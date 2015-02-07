@@ -21,6 +21,7 @@
       </li>
       <li>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
+          <li>   <%= link_to "Contact", contacts_new_path, :class => 'navbar-link' %> </li>
       <% else %>
       <li><%= link_to "Home", root_path, :class => 'navbar-link'  %></li>
       <li><%= link_to "About", about_path, :class => 'navbar-link'  %></li>
